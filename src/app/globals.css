@@ -1,8 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* ====== THEME SETUP ====== */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+.glow-text {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 @theme inline {
@@ -23,4 +27,74 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ====== BASE LAYER ====== */
+@layer base {
+  :root {
+    --gradient-radial-dark: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(0, 0, 77, 0) 0%,
+      rgba(3, 3, 28, 0.6) 100%
+    );
+
+    --grid-horizontal: linear-gradient(to bottom, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+
+    --grid-vertical: linear-gradient(to right, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  }
+}
+
+/* ====== UTILITIES LAYER ====== */
+@layer utilities {
+  .bg-radial-dark {
+    background-image: var(--gradient-radial-dark);
+  }
+
+  .bg-grid {
+    background-image: var(--grid-horizontal), var(--grid-vertical);
+    background-size:
+      50px 50px,
+      50px 50px;
+    background-position:
+      0 0,
+      0 0;
+    background-repeat: repeat, repeat;
+  }
+
+  .bg-grid-and-gradient {
+    background-image: var(--gradient-radial-dark), var(--grid-horizontal), var(--grid-vertical);
+
+    background-size:
+      cover,
+      50px 50px,
+      50px 50px;
+
+    background-position:
+      center,
+      0 0,
+      0 0;
+
+    background-repeat: no-repeat, repeat, repeat;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  .glow-line {
+    @apply absolute top-[-100px] h-[100px] w-[2px] bg-white opacity-80;
+    filter: blur(4px);
+    animation: glow-drop var(--duration, 2s) ease-in-out;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes glow-drop {
+    0% {
+      transform: translateY(0);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(120vh);
+      opacity: 0;
+    }
+  }
 }

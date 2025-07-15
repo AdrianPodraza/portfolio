@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio-orcin-two-87.vercel.app
+
+# Sitemaps
+Sitemap: https://portfolio-orcin-two-87.vercel.app/sitemap.xml
