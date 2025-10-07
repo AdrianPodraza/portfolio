@@ -6,6 +6,7 @@ export const techStackIcons = [
   {
     name: 'React',
     modelPath: '/3d-models/reactModel.glb',
+    img: '/tech-png/React.png',
     scale: [0.05, 0.05, 0.05] as [number, number, number],
     rotation: [0, 0, 0] as [number, number, number],
   },
@@ -30,6 +31,7 @@ export const techStackIcons = [
   {
     name: 'Tailwind CSS',
     modelPath: '/3d-models/tailwindModel.glb',
+    img: '/tech-png/Tailwind.png',
     scale: [0.05, 0.05, 0.05] as [number, number, number],
     rotation: [0, 0, 0] as [number, number, number],
   },

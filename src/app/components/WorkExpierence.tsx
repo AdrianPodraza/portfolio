@@ -12,7 +12,7 @@ function WorkExpierence() {
       className="mx-4 mt-[200px] flex flex-col gap-4 xl:mx-32 xl:h-screen xl:scroll-mt-[170px]"
     >
       <h2 className="text-[32px] font-bold">My Work Experience and About me</h2>
-      <div className="mt-12 grid h-full auto-rows-[300px] grid-cols-1 gap-5 lg:grid-cols-3 xl:h-[75vh] xl:grid-rows-2">
+      <div className="mt-12 grid h-full grid-cols-1 grid-rows-[300px_300px_500px] gap-5 lg:grid-cols-3 xl:h-[75vh] xl:grid-rows-2">
         <div className="col-span-1 cursor-grab rounded-lg border border-[#1C1C21] bg-[#0d0d0f] xl:row-span-2 xl:h-full">
           <DeveloperExpierence animationName={animationName} />
         </div>
@@ -53,8 +53,14 @@ function WorkExpierence() {
                   <p className="mb-5 text-sm">
                     {item.pos} -- <span>{item.duration}</span>
                   </p>
+
                   <p className="transition-all duration-500 ease-in-out group-hover:text-white">
-                    {item.title}
+                    {item.title.split('\n').map((line, index) => (
+                      <React.Fragment key={index}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
                   </p>
                 </div>
               </div>

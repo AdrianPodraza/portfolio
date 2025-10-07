@@ -12,7 +12,7 @@ export default function Developer({ animationName = 'idle', ...props }) {
   idleAnimation[0].name = 'idle';
   thankAnimation[0].name = 'thank';
   waveAnimation[0].name = 'wave';
-  console.log(animationName);
+
   const { actions } = useAnimations([idleAnimation[0], thankAnimation[0], waveAnimation[0]], group);
 
   useEffect(() => {
